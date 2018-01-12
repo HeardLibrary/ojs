@@ -32,7 +32,7 @@
               <li> <strong>Mike Kennedy, PhD</strong>, Northwestern University </li>
               <li> <strong>Mary Jo Koroly, PhD</strong>, University of Florida </li>
               <li> <strong>Juan Lopez-Garriga, PhD</strong>, Recinto Universitario de Mayaguez</li>
-              <li> <strong>Jennifer A. Ufnar</strong>, PhD, Vanderbilt University </li>
+              <li> <strong>Jennifer A. Ufnar, PhD</strong>, Vanderbilt University </li>
             </ul>  
           </div>
         </div> <!-- /panel --> 

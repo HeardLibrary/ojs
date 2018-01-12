@@ -84,9 +84,9 @@
 				</h2>
 			</header> -->
 			<!-- <p class="current_issue_title lead">  -->
-			<div class="page-header">
-				{$issue->getIssueIdentification()|strip_unsafe_html}
-			</div>
+			<h3 class="page-header">
+				{$issue->getIssueIdentification()|strip_unsafe_html} <span style="float: right; font-size: 75%;">{$issue->getDatePublished()|date_format:$dateFormatShort}</span>
+			</h3>
 			
 			{include file="frontend/objects/issue_toc.tpl"}
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">

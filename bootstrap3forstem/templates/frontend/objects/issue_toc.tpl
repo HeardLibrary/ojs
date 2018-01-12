@@ -69,12 +69,12 @@
 
 			{* Published date *}
 			{if $issue->getDatePublished()}
-				<p class="published">
+<!-- 				<p class="published">
 					<strong>
 						{translate key="submissions.published"}:
 					</strong>
 					{$issue->getDatePublished()|date_format:$dateFormatShort}
-				</p>
+				</p> -->
 			{/if}
 		</div>
 	</div>

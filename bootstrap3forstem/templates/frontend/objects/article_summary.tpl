@@ -27,18 +27,20 @@
 	{/if}
 
 	<div class="media-body">
-		<div class="media-heading authors"> <!-- display authors  -->
+		<div class="authors"> <!-- display authors  -->
 			{$article->getAuthorString()}
 		</div>	
 
 		<!-- display article title : subtitle --> 
-		<a href="{url page="article" op="view" path=$articlePath} ">
-			{$article->getLocalizedTitle()|strip_unsafe_html}
+		<div class="title">
+			<a href="{url page="article" op="view" path=$articlePath} ">
+				{$article->getLocalizedTitle()|strip_unsafe_html}
 
-			{if $article->getLocalizedSubtitle() }
-			: {$article->getLocalizedSubtitle()|strip_unsafe_html} 
-			{/if}	
-		</a>
+				{if $article->getLocalizedSubtitle() }
+				: {$article->getLocalizedSubtitle()|strip_unsafe_html} 
+				{/if}	
+			</a>
+		</div>
 		
 		<!-- display links to Abstract, PDF, and supplements --> 
 		<div class="links">
