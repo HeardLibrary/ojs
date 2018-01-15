@@ -29,8 +29,8 @@
 
             <ul class="list-group"> <b>Associate Editors: </b>
               <li> <strong>Maurice Godfrey, PhD</strong>, University of Nebraska Medical Center</li>
-              <li> <strong>Mike Kennedy, PhD</strong>, Northwestern University </li>
               <li> <strong>Mary Jo Koroly, PhD</strong>, University of Florida </li>
+              <li> <strong>Mike Kennedy, PhD</strong>, Northwestern University </li>
               <li> <strong>Juan Lopez-Garriga, PhD</strong>, Recinto Universitario de Mayaguez</li>
               <li> <strong>Jennifer A. Ufnar, PhD</strong>, Vanderbilt University </li>
             </ul>  

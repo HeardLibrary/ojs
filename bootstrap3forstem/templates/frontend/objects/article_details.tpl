@@ -17,14 +17,14 @@
  *}
 <article class="article-details">
 	<header>
-		<h1 class="page-header">
+		<h3 class="page-header">
 			{$article->getLocalizedTitle()|escape}
 			{if $article->getLocalizedSubtitle()}
 				<small>
 					{$article->getLocalizedSubtitle()|escape}
 				</small>
 			{/if}
-		</h1>
+		</h3>
 	</header>
 	{** list of authors **}
 	{if $article->getAuthors()}
@@ -65,7 +65,7 @@
 				{* Article abstract *}
 				{if $article->getLocalizedAbstract()}
 					<div class="article-summary" id="summary">
-						<h2>{translate key="article.abstract"}</h2>
+						<h3>{translate key="article.abstract"}</h3>
 						<div class="article-abstract">
 							{$article->getLocalizedAbstract()|strip_unsafe_html|nl2br}
 						</div>
