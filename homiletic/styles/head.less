@@ -55,7 +55,7 @@
 
 		&:hover,
 		&:focus {
-			color: @text-bg-base;
+			color: darken(@text-light, 20%);
 		}
 	}
 
@@ -65,7 +65,7 @@
 
 		&:hover,
 		&:focus {
-			border-color: @text-bg-base;
+			border-color: darken(@text-light, 20%);
 		}
 	}
 
@@ -75,7 +75,7 @@
 	}
 
 	ul {
-		background: @bg-base;
+		background: darken(@text-light, 20%);
 
 		a {
 			color: @text-bg-base;
@@ -88,7 +88,8 @@
 	}
 
 	[aria-expanded="true"]:before {
-		border-bottom-color: @text-bg-base;
+		// border-bottom-color: @text-bg-base;
+		border-bottom-color: darken(@text-light, 20%);
 	}
 }
 
