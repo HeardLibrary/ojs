@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/themes/bootstrap3/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2017 Vanderbilt University Library
+   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings
+  -->
+
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.themes.vanderbiltlives.name">Customized Bootstrap 3 theme for Vanderbilt Lives </message>
+	<message key="plugins.themes.vanderbiltlives.description">Customized Bootstrap 3 theme for the Vanderbilt Lives</message>
+</locale>

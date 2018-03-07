@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
+
+<!--
+  * plugins/bootstrap3forstem/version.xml
+  * customized theme for STEM journal based on bootstrap3 basic theme
+
+  *
+  * Plugin version information.
+  -->
+
+<version>
+	<application>vanderbiltlives</application>
+	<type>plugins.themes</type>
+	<release>1.0.0.0</release>
+	<date>2018-02-16</date>
+	<lazy-load>0</lazy-load>
+	<class>VanderbiltLivesThemePlugin</class>
+</version>
