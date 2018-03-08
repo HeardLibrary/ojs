@@ -8,7 +8,7 @@
 * User registration form.
 *}
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
-<main class="pkp_structure_main col-xs-12 col-sm-10 col-md-8" role="main">
+<!-- <main class="pkp_structure_main col-xs-12 col-sm-10 col-md-8" role="main"> -->
 
 <div id="main-content" class="page page_register">
 
@@ -45,7 +45,7 @@
 				{/if}
 			{/foreach}
 
-			{* Allow the user to sign up as a reviewer *}
+			{* Allow the user to sign up as a reviewer 
 			{assign var=userCanRegisterReviewer value=0}
 			{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
 				{if $userGroup->getPermitSelfRegistration()}
@@ -71,8 +71,8 @@
 						</div>
 					</div>
 				</fieldset>
-			{/if}
-		{/if}
+			{/if} *}
+		{/if} 
 
 		{include file="frontend/components/registrationFormContexts.tpl"}
 
@@ -98,6 +98,5 @@
 			</a>
 		</div>
 	</form>
-
 
 {include file="common/frontend/footer.tpl"}
