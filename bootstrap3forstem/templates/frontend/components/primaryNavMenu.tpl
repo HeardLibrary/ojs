@@ -17,34 +17,6 @@
   {/if}
 -->
 
-  <!-- <li class="dropdown">
-    <a href="{url router=$smarty.const.ROUTE_PAGE page="about"}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{translate key="navigation.about"} <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="{url router=$smarty.const.ROUTE_PAGE page="about"}">
-          {translate key="about.aboutContext"}
-        </a>
-      </li>
-      <li>
-        <a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="editorialTeam"}">
-          {translate key="about.editorialTeam"}
-        </a>
-      </li>
-      <li>
-        <a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}">
-          {translate key="about.submissions"}
-        </a>
-      </li>
-  	  {if $currentJournal->getSetting('mailingAddress') || $currentJournal->getSetting('contactName')}
-  	  <li>
-  	    <a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="contact"}">
-  		    {translate key="about.contact"}
-  	    </a>
-  	  </li>
-      {/if}
-    </ul>
-  </li>   -->
-
   <li>
     <a href="{url router=$smarty.const.ROUTE_PAGE page="about"}">
       About
@@ -54,10 +26,10 @@
   <li class="dropdown">
     <a href="publish" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Publish <span class="caret"></span></a>
     <ul class="dropdown-menu">
-      <li><a href="for-authors"> Information For Authors</a></li>
-      <li><a href="publish">Submission Guidelines</a></li>
-      <li><a href="review">Manuscript Review Process</a></li>
-      <li><a href="policies">Policies</a></li>
+      <li><a href="{url router=$smarty.const.ROUTE_PAGE page="for-authors"}"> Information For Authors</a></li>
+      <li><a href="{url router=$smarty.const.ROUTE_PAGE page="publish"}"> Submission Guidelines</a></li>
+      <li><a href="{url router=$smarty.const.ROUTE_PAGE page="review"}"> Manuscript Review Process</a></li>
+      <li><a href="{url router=$smarty.const.ROUTE_PAGE page="policies"}"> Policies</a></li>
     </ul>
   </li>
 
