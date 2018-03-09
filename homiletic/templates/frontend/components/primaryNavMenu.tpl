@@ -81,11 +81,11 @@
 						Browse by Author
 					</a>
 				</li>
-				<li>
+<!-- 				<li>
 					<a href="{url router=$smarty.const.ROUTE_PAGE page="search" op="titles}">
 						Browse by Title
 					</a>
-				</li>
+				</li> -->
 			</ul>
 		</li>
 </ul>
