@@ -64,25 +64,36 @@
 
 <!--  <h2> customized article_details page </h2>  -->
 <article class="obj_article_details">
-	<h1 class="page_title">
-		{$article->getLocalizedTitle()|escape}
-	</h1>
+
+	{* Title display, special process added for book reviews  *}
+	{ if ( stripos( $section->getLocalizedTitle(), "review" ) !== false ) }
+		<h1 class="page_title">
+			{$article->getLocalizedPrefix()|escape}: 
+			<i>{$article->getLocalizedTitle()|escape}</i>
+		</h1>
+	{else}	
+		<h1 class="page_title">
+			{$article->getLocalizedTitle()|escape}
+		</h1>
+	{/if}		
 
 	{if $article->getLocalizedSubtitle()}
 		<h2 class="subtitle">
 			{$article->getLocalizedSubtitle()|escape}
 		</h2>
-	{/if}
-
+	{/if}	
+	
 	<div class="row">
 		<div class="main_entry">
 
 			{if $article->getAuthors()}
+
 				<ul class="item authors">
 					{foreach from=$article->getAuthors() item=author}
+
 						<li>
 							<span class="name">
-								{$author->getFullName()|escape}
+							{$author->getFullName()|escape}
 							</span>
 							{if $author->getLocalizedAffiliation()}
 								<span class="affiliation">
@@ -173,6 +184,20 @@
 				</div>
 			{/if}
 
+			{* Article Galleys *}
+			{assign var=galleys value=$article->getGalleys()}
+			{if $galleys}
+				<div class="item galleys">
+					<ul class="value galleys_links">
+						{foreach from=$galleys item=galley}
+							<li>
+								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley}
+							</li>
+						{/foreach}
+					</ul>
+				</div>
+			{/if}
+
 			{* References *}
 			{if $article->getCitations()}
 				<div class="item references">
@@ -249,6 +274,31 @@
 				</div>
 			{/if}
 
+			{* Issue article appears in *}
+			<div class="item issue">
+				<div class="sub_item">
+					<div class="label">
+						{translate key="issue.issue"}
+					</div>
+					<div class="value">
+						<a class="title" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+							{$issue->getIssueIdentification()}
+						</a>
+					</div>
+				</div>
+
+				{if $section}
+					<div class="sub_item">
+						<div class="label">
+							{translate key="section.section"}
+						</div>
+						<div class="value">
+							{$section->getLocalizedTitle()|escape}
+						</div>
+					</div>
+				{/if}
+			</div>
+
 			{* Citation formats *}
 			{if $citationPlugins|@count}
 				<div class="item citation_formats">
@@ -283,31 +333,6 @@
 					</div>
 				</div>
 			{/if}
-
-			{* Issue article appears in *}
-			<div class="item issue">
-				<div class="sub_item">
-					<div class="label">
-						{translate key="issue.issue"}
-					</div>
-					<div class="value">
-						<a class="title" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-							{$issue->getIssueIdentification()}
-						</a>
-					</div>
-				</div>
-
-				{if $section}
-					<div class="sub_item">
-						<div class="label">
-							{translate key="section.section"}
-						</div>
-						<div class="value">
-							{$section->getLocalizedTitle()|escape}
-						</div>
-					</div>
-				{/if}
-			</div>
 
 			{* Keywords *}
 			{* @todo keywords not yet implemented *}
