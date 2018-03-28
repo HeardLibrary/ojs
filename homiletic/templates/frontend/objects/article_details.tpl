@@ -68,7 +68,7 @@
 	{* Title display, special process added for book reviews  *}
 	{ if ( stripos( $section->getLocalizedTitle(), "review" ) !== false ) }
 		<h1 class="page_title">
-			{$article->getLocalizedPrefix()|escape}: 
+			{* $article->getLocalizedPrefix()|escape: *}
 			<i>{$article->getLocalizedTitle()|escape}</i>
 		</h1>
 	{else}	
@@ -184,7 +184,7 @@
 				</div>
 			{/if}
 
-			{* Article Galleys *}
+			{* Article Galleys / PDFs  *}
 			{assign var=galleys value=$article->getGalleys()}
 			{if $galleys}
 				<div class="item galleys">
@@ -246,20 +246,6 @@
 							</a>
 						{/if}
 					</div>
-				</div>
-			{/if}
-
-			{* Article Galleys *}
-			{assign var=galleys value=$article->getGalleys()}
-			{if $galleys}
-				<div class="item galleys">
-					<ul class="value galleys_links">
-						{foreach from=$galleys item=galley}
-							<li>
-								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley}
-							</li>
-						{/foreach}
-					</ul>
 				</div>
 			{/if}
 
