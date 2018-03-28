@@ -55,6 +55,7 @@
     <a href="publish" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Authors <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="/index.php/VanderbiltLives/information/authors"> Information For Authors</a></li>
+      <li><a href="/index.php/VanderbiltLives/immersion"> Immersion Opportunities</a></li>
       <li><a href="/index.php/VanderbiltLives/information/librarians"> Resources</a></li>
       <li><a href="/index.php/VanderbiltLives/about/submissions"> Submit</a></li>
     </ul>
