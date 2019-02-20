@@ -79,21 +79,21 @@
 		</div>
 	</div>
 
-<!-- 	{* Full-issue galleys *}
-	{if $issueGalleys && ($hasAccess || $showGalleyLinks)}
-		<div class="galleys">
-			<div class="page-header">
+ 	{* Full-issue galleys *}  
+	{if $issueGalleys && ($hasAccess || $showGalleyLinks) }
+	 	<div class="galleys">
+			<!-- div class="page-header">
 				<h2>
 					<small>{translate key="issue.fullIssue"}</small>
 				</h2>
-			</div>
+			</div -->
 			<div class="btn-group" role="group">
 				{foreach from=$issueGalleys item=galley}
 					{include file="frontend/objects/galley_link.tpl" parent=$issue}
 				{/foreach}
 			</div>
-		</div>
-	{/if} -->
+		</div>   
+	{/if } 
 
 	{* Articles *}
 	<div class="sections">
