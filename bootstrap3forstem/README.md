@@ -32,6 +32,7 @@ This theme requires at least OJS 3.0.2. Some versions of this theme are only com
 * **defaultManuscript v1.0.0** is compatible with OJS 3.0.2.
 
 ## Contributors
+2017 Tao You, Vanderbilt University Library
 
 
 ## Changelog

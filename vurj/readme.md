@@ -11,6 +11,7 @@ This theme requires at least OJS 3.0.2. Some versions of this theme are only com
 
 
 ## Contributors
+* Tao You, Vanderbilt University Library
 
 
 ## Changelog

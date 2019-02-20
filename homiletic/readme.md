@@ -1,4 +1,4 @@
-# Manuscript (Default child theme)
+# Homiletic (Homiletic theme based on Manuscript theme)
 
 A clean, simple theme with a boxed layout that mimics a paper document.
 
@@ -20,6 +20,7 @@ This theme requires at least OJS 3.0.2. Some versions of this theme are only com
 ## Contributors
 
 * Nate Wright ([PKP](https://pkp.sfu.ca/))
+* 2017 Tao You, Vanderbilt University Library
 
 ## Changelog
 
