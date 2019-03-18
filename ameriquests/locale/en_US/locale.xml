@@ -13,7 +13,7 @@
  -->
 
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.ameriquests.name">Themes for AmeriQuests</message>
+	<message key="plugins.themes.ameriquests.name">Theme for AmeriQuests (customized Bootstrap 3)</message>
 	<message key="plugins.themes.ameriquests.description">Customized theme based on bootstrap 3 basic theme</message>
 
 	<!-- Theme options -->

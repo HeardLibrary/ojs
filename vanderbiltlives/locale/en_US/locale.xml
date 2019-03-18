@@ -12,6 +12,6 @@
   -->
 
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.vanderbiltlives.name">Customized Bootstrap 3 theme for Vanderbilt Lives </message>
+	<message key="plugins.themes.vanderbiltlives.name">Theme for Vanderbilt Lives (Customized Bootstrap 3)</message>
 	<message key="plugins.themes.vanderbiltlives.description">Customized Bootstrap 3 theme for the Vanderbilt Lives</message>
 </locale>

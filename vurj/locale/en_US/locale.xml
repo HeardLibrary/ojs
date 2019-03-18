@@ -12,7 +12,7 @@
   -->
 
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.vurj.name">VURJ Theme</message>
+	<message key="plugins.themes.vurj.name">Theme for VURJ (default OJS theme)</message>
 	<message key="plugins.themes.vurj.description">A basic theme based on OJS default theme</message>
 
 	<!-- Theme options -->
