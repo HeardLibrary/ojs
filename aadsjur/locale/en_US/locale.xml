@@ -12,6 +12,6 @@
   -->
 
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.aadsjur.name">Theme for AADSJUR Journal</message>
-	<message key="plugins.themes.aadsjur.description">A simple theme based on OJS default theme.</message>
+	<message key="plugins.themes.aadsjur.name">Theme for AADSJUR Journal (customized BootStrap3)</message>
+	<message key="plugins.themes.aadsjur.description">AADSJUR journal theme based on bootstrap3.</message>
 </locale>

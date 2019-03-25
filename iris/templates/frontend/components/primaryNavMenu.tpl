@@ -40,7 +40,6 @@
 			</ul>
 		</li>
 
-
 	{if $enableAnnouncements}
 		<li>
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement"}">
@@ -48,6 +47,8 @@
 			</a>
 		</li>
 	{/if}
+
+
 
 	{if $currentJournal}
 
@@ -64,6 +65,6 @@
 			</li>
 		{/if}
 
-		
+	
 	{/if}
 </ul>
