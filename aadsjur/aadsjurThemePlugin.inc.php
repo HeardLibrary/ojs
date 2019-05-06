@@ -25,11 +25,11 @@ class aadsjurThemePlugin extends ThemePlugin {
 	public function init() {
 
 		// Initialize the parent theme
-		$this->setParent('bootstrapthreethemeplugin');
+		$this->setParent('defaultthemeplugin');
 
 		//Add child theme styles
 		//$this->modifyStyle('bootstrap', array('addLess' =>array('styles/variables.less'))); 
-		$this->addStyle('stem', 'styles/aadsjur.less');
+		$this->addStyle('aadsjur', 'styles/aadsjur.less');
 
 		// Remove options of the parent theme.
 		if (method_exists($this, 'removeOption')) {
