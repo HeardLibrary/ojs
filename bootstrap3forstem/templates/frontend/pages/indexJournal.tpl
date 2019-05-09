@@ -67,6 +67,7 @@
 	<div id="main-content" class="page_index_journal" role="content">
 
 	{* Additional Homepage Content *}
+
 	{if $additionalHomeContent}
 		<section class="additional_content">
 			{$additionalHomeContent}
