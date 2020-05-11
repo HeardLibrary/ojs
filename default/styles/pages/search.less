@@ -1,9 +1,9 @@
 /**
  * @file styles/pages/search.less
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Styles applying to the search form and results page
  * @link templates/frontend/pages/search.tpl
@@ -56,7 +56,7 @@
 	}
 
 	.author {
-		width: 50%:
+		width: 50%;
 		float: right;
 	}
 
@@ -80,6 +80,20 @@
 
 		.obj_article_summary {
 			padding: @double 0;
+		}
+	}
+
+	// Deprecated pagination of search results
+	.cmp_pagination {
+		margin-top: @double;
+		font-size: @font-sml;
+		line-height: @double;
+		color: @text-light;
+		text-align: right;
+
+		a {
+			padding-left: 0.5em;
+			padding-right: 0.5em;
 		}
 	}
 }

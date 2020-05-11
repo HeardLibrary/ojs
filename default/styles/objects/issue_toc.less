@@ -1,9 +1,9 @@
 /**
  * @file styles/objects/issue_toc.less
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Styles applying to an issue table of contents view
  * @link templates/frontend/objects/issue_toc.tpl
@@ -56,12 +56,21 @@
 		}
 	}
 
-	.articles,
-	.galleys_links {
+	.articles {
 		&:extend(.pkp_unstyled_list);
 	}
 
+	.sections:not(:first-child) {
+		margin-top: @triple * 2;
+	}
+
+	.section:last-child .articles > li:last-child {
+		margin-bottom: 0;
+	}
+
 	.galleys_links {
+		&:extend(.pkp_unstyled_list);
+		margin-top: @base;
 
 		li {
 			display: inline-block;
@@ -71,19 +80,6 @@
 				margin-right: 0;
 			}
 		}
-	}
-
-	.articles > li {
-		.pkp_helpers_clear();
-		margin-bottom: @triple;
-	}
-
-	.sections:not(:first-child) {
-		margin-toP: @triple * 2;
-	}
-
-	.section:last-child .articles > li:last-child {
-		margin-bottom: 0;
 	}
 
 	@media(min-width: @screen-tablet) {
@@ -105,12 +101,20 @@
 			position: relative;
 			margin: @triple -@double;
 			padding: @triple;
-			border-top: @bg-border;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 45px;
+				left: 0;
+				width: 100%;
+				border-top: @bg-border;
+			}
 
 			h2 {
-				position: absolute;
-				top: -15px;
-				left: @triple / 2;
+				display: inline-block;
+				position: relative;
+				left: -15px;
 				margin-top: 0;
 				padding: 0 (@triple / 2);
 				background: @lift;
