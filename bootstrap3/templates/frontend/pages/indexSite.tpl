@@ -21,7 +21,7 @@
 	<div class="journals">
 		<div class="page-header">
 			<h2>
-				{translate key="journal.journals"}
+				{translate key="context.contexts"}
 			</h2>
 		</div>
 
@@ -34,14 +34,13 @@
 			<ul class="media-list">
 				{iterate from=journals item=journal}
 					{capture assign="url"}{url journal=$journal->getPath()}{/capture}
-					{assign var="thumb" value=$journal->getLocalizedSetting('journalThumbnail')}
+					{assign var="thumb" value=$journal->getLocalizedData('journalThumbnail')}
 					{assign var="description" value=$journal->getLocalizedDescription()}
 					<li class="media">
 						{if $thumb}
-							{assign var="altText" value=$journal->getLocalizedSetting('journalThumbnailAltText')}
 							<div class="media-left">
 								<a href="{$url|escape}">
-									<img class="media-object" src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}"{if $altText} alt="{$altText|escape}"{/if}>
+									<img class="media-object" src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}"{if $thumb.altText} alt="{$thumb.altText|escape}"{/if}>
 								</a>
 							</div>
 						{/if}
