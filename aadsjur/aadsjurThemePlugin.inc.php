@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/themes/AmeriQuests/aadsjurThemePlugin.inc.php
+ * @file plugins/themes/aadsjur/aadsjurThemePlugin.inc.php
  *
  * Copyright (c) 2019 Vanderbilt University Library
  * Copyright (c) 2019 Tao You 
@@ -54,6 +54,3 @@ class aadsjurThemePlugin extends ThemePlugin {
 	}
 
 }
-
-
-?>
