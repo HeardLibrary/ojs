@@ -7,9 +7,8 @@ A theme developed for Vanderbilt Lives based on bootstrap3
 
 ## Version Compatibility
 
-This theme requires at least OJS 3.0.2. Some versions of this theme are only compatible with certain releases of OJS. This release list indicates which versions are compatible.
-
-* **defaultManuscript v1.0.0** is compatible with OJS 3.0.2.
+* **v1.0.2** is compatible with OJS 3.2
+* **v1.0.0** is compatible with OJS 3.0.2.
 
 ## Contributors
 * Tao You, Vanderbilt University Library
@@ -18,5 +17,10 @@ This theme requires at least OJS 3.0.2. Some versions of this theme are only com
 
 **1.0.0** (2018-02)
 * Initial release: a theme developed based on bootstrap3
+
+**1.0.2** (2020-05)
+* Updated to be compatible with OJS 3.2
+
+
 
 

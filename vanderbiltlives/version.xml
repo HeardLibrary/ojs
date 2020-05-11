@@ -12,8 +12,8 @@
 <version>
 	<application>vanderbiltlives</application>
 	<type>plugins.themes</type>
-	<release>1.0.0.0</release>
-	<date>2018-02-16</date>
+	<release>1.0.2.0</release>
+	<date>2020-05-08</date>
 	<lazy-load>0</lazy-load>
 	<class>VanderbiltLivesThemePlugin</class>
 </version>
