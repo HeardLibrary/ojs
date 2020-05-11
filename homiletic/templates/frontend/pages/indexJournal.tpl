@@ -1,9 +1,14 @@
 {**
  * templates/frontend/pages/indexJournal.tpl
  *
- * Copyright (c) 2017 Vanderbilt University Library
+ * UPDATED/CHANGED/MODIFIED: Tao You @vanderbilt - 2020.05.01
+ * Customized journal index page for Homiletic journal at Vanderbilt
  *
- * @brief Display customized index page for a journal
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Display the index page for a journal
  *
  * @uses $currentJournal Journal This journal
  * @uses $journalDescription string Journal description from HTML text editor
@@ -15,18 +20,25 @@
  * @uses $issue Issue Current issue
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
-
+<!-- customized journal home page for Homiletic --> 
 <div class="page_index_journal">
 
 	{call_hook name="Templates::Index::journal"}
 
-	{if $homepageImage}
-		<div class="homepage_image">
-			<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
-		</div>
+	{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
+		<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
 	{/if}
 
-	{* Additional Homepage Content - displayed on top  *}
+	{* Journal Description -- removed for Homiletic Journal *}
+	{* if $activeTheme->getOption('showDescriptionInJournalIndex')}
+		<section class="homepage_about">
+			<a id="homepageAbout"></a>
+			<h2>{translate key="about.aboutContext"}</h2>
+			{$currentContext->getLocalizedData('description')}
+		</section>
+	{/if  *}
+
+	{* Additional Homepage Content -- display at top *}
 	{if $additionalHomeContent}
 		<div class="additional_content">
 			{$additionalHomeContent}
@@ -35,13 +47,14 @@
 
 	{* Announcements *}
 	{if $numAnnouncementsHomepage && $announcements|@count}
-		<div class="cmp_announcements highlight_first">
+		<section class="cmp_announcements highlight_first">
+			<a id="homepageAnnouncements"></a>
 			<h2>
 				{translate key="announcement.announcements"}
 			</h2>
 			{foreach name=announcements from=$announcements item=announcement}
 				{if $smarty.foreach.announcements.iteration > $numAnnouncementsHomepage}
-					{php}break;{/php}
+					{break}
 				{/if}
 				{if $smarty.foreach.announcements.iteration == 1}
 					{include file="frontend/objects/announcement_summary.tpl" heading="h3"}
@@ -60,17 +73,13 @@
 				{/if}
 			{/foreach}
 			</div><!-- .more -->
-		</div>
+		</section>
 	{/if}
-
-	{* display links to all issues *}
-	<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="read_more">
-				<h2>{translate key="journal.viewAllIssues"}</h2>
-	</a>
 
 	{* Latest issue *}
 	{if $issue}
-		<div class="current_issue">
+		<section class="current_issue">
+			<a id="homepageIssue"></a>
 			<h2>
 				{translate key="journal.currentIssue"}
 			</h2>
@@ -78,11 +87,10 @@
 				{$issue->getIssueIdentification()|strip_unsafe_html}
 			</div>
 			{include file="frontend/objects/issue_toc.tpl"}
-
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="read_more">
 				{translate key="journal.viewAllIssues"}
 			</a>
-		</div>
+		</section>
 	{/if}
 
 </div><!-- .page -->
