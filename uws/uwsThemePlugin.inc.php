@@ -54,6 +54,3 @@ class uwsThemePlugin extends ThemePlugin {
 	}
 
 }
-
-
-?>
