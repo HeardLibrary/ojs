@@ -3,13 +3,14 @@
 /**
  * @file plugins/themes/vurj/vurjThemePlugin.inc.php
  *
- * Copyright (c) 2019 Vanderbilt University Library
+ * Copyright (c) 2017-2020 Vanderbilt University Library
+ * Copyright (c) 2017-2020 Tao You
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class vurjThemePlugin
  * @ingroup plugins_themes_vurj
  *
- * @ Default theme for VURJ 
+ * @ Customized theme for VURJ based on OJS healthSciences Theme 
  */
 
 import('lib.pkp.classes.plugins.ThemePlugin');
@@ -24,8 +25,8 @@ class vurjThemePlugin extends ThemePlugin {
 	public function init() {
 
 		// Initialize the parent theme
-		$this->setParent('defaultthemeplugin');
-		
+		$this->setParent('healthsciencesthemeplugin');
+	
 		//Add child theme styles
 		//$this->addStyle('vurj', 'styles/vurj.less'); 
 		//print_r($this);
@@ -48,5 +49,3 @@ class vurjThemePlugin extends ThemePlugin {
 	}
 
 }
-
-?>
