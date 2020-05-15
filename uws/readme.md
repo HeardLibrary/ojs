@@ -26,4 +26,5 @@ This theme requires at least OJS 3.0.2. Some versions of this theme are only com
 * updated toc page
 
 **2.0.0 (2020-04)
-* updated to be compatible with OJS 3.2
+* Updated to be compatible with OJS 3.2
+* Added responsive iframes for author's reflection video  

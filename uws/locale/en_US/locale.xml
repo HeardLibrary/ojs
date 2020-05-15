@@ -14,7 +14,5 @@
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.themes.uws.name">Theme for Undergraduate Writing Symposium Digital Collection (customized default theme)</message>
 	<message key="plugins.themes.uws.description">Undergraduate Writing Symposium Digital Collection Theme modified from default Theme.</message>
-
-<message key="submission.citations">Author's Reflection</message>
-
+  <message key="submission.citation">Author's Reflection</message>
 </locale>

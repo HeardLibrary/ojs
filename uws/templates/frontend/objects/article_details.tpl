@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/article_details.tpl
  *
- * UPDATED/CHANGED/MODIFIED by Tao You @ Vanderbilt, 2020-04
- * customized article_details page for Acaffold Journal at Vanderbilt  
+ * UPDATED/CHANGED/MODIFIED: Tao You @vanderbilt - 2020.05
+ * Customized article details page for Scaffold journal at Vanderbilt
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
@@ -69,8 +69,8 @@
  *   included with published submissions.
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
+<!-- Customized article detail page for Scaffold --> 
 <article class="obj_article_details">
-<!-- customized article_details page for Scaffold --> 
 
 	{* Notification that this is an old version *}
 	{if $currentPublication->getId() !== $publication->getId()}
@@ -208,22 +208,16 @@
 				</section>
 			{/if}
 
-			{* References *}
-			{if $parsedCitations || $publication->getData('citationsRaw')}
-				<section class="item references">
-					<h2 class="label">
-						{translate key="submission.citations"}
-					</h2>
-					<div class="value">
-						{if $parsedCitations}
-							{foreach from=$parsedCitations item="parsedCitation"}
-								<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Article::Details::Reference" citation=$parsedCitation}</p>
-							{/foreach}
-						{else}
-							{$publication->getData('citationsRaw')|escape|nl2br}
-						{/if}
+			{* References - updated with author's reflection video *}
+			{if $article->getCitations()}
+				<div class="item references">
+					<h3 class="label">
+						{translate key="submission.citation"}
+					</h3>
+					<div class="resp-container">
+						{$article->getCitations()|nl2br}
 					</div>
-				</section>
+				</div>
 			{/if}
 
 		</div><!-- .main_entry -->

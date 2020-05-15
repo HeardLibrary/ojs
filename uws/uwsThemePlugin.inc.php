@@ -28,8 +28,7 @@ class uwsThemePlugin extends ThemePlugin {
 		$this->setParent('defaultthemeplugin');
 
 		//Add child theme styles
-		//$this->modifyStyle('bootstrap', array('addLess' =>array('styles/variables.less'))); 
-		//$this->addStyle('stem', 'styles/aadsjur.less');
+		$this->addStyle('uws', 'styles/uws.css');
 
 		// Remove options of the parent theme.
 		//if (method_exists($this, 'removeOption')) {
