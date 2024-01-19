@@ -4,25 +4,36 @@ A clean, simple theme with a boxed layout that mimics a paper document.
 
 ## Installation
 
-1. Download the [latest release](https://github.com/NateWr/defaultManuscript/releases).
-2. Unpack the .zip file and move the `defaultManuscript` directory to your OJS installation at `/plugins/themes/defaultManuscript`.
-3. Login to the admin area of your OJS website. Browse to the Settings > Website > Plugins page and enable the theme named Manuscript (Default child theme).
-4. Browse to the Settings > Website > Appearance page and select Manuscript (Default child theme) from the theme option and save your change.
-
-You can now see the Manuscript theme on your website. You can change the colors by browsing back to the Settings > Website > Appearance page (or refresh the page if it is still open).
+This theme is a child theme of defaultManuscript theme (https://github.com/NateWr/defaultManuscript/releases).  defaultManuscript theme need to be installed for this theme to work. 
 
 ## Version Compatibility
 
-This theme requires at least OJS 3.0.2. Some versions of this theme are only compatible with certain releases of OJS. This release list indicates which versions are compatible.
-
-* **defaultManuscript v1.0.0** is compatible with OJS 3.0.2.
+* ** v1.0.0* is compatible with OJS 3.0.2.
+* ** v2.0.0* is compatible with OJS 3.2.
 
 ## Contributors
 
-* Nate Wright ([PKP](https://pkp.sfu.ca/))
-* 2017 Tao You, Vanderbilt University Library
+* 2017: Tao You, Vanderbilt University Library
+* 2020: Tao You, Vanderbilt University Library
 
 ## Changelog
 
 **1.0.0** (2017-02-07)
 * Initial release
+* copied defaultManuscipt theme as the basis for homiletic theme 
+* customized sidebar_block 
+* customzed two static pages (editorial board, submit an article)
+* submit an article links to a libWizard form hosted at libWards.library.vanderbilt.edu
+* added customized styles for sidebar buttons
+* updated sections displaying order in indexJournal.tpl  
+* updated article_details.tpl 
+
+**2.0.0** (2020-04-30)
+* updated to use defaultManuscript v1.0.3 as parent theme, instead of copy/customize defaultManuscript theme 
+* recreated sidebar_block
+* recreated two static pages
+* updated indexJournal.tpl and article_details.tpl
+* updated styles for issue_toc template (Nov. 2020)
+
+
+

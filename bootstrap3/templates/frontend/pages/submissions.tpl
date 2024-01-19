@@ -1,9 +1,9 @@
 {**
  * templates/frontend/pages/submissions.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the page to view the editorial team.
  *
@@ -37,51 +37,38 @@
 		</div>
 	{/if}
 
-	{* Submission Checklist *}
-	{if $submissionChecklist}
-		<div class="submission_checklist">
-			<div class="page-header">
-				<h2>
-					{translate key="about.submissionPreparationChecklist"}
-					{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}
-				</h2>
-			</div>
-			<p class="lead description">
-				{translate key="about.submissionPreparationChecklist.description"}
-			</p>
-			<ul class="list-group">
-				{foreach from=$submissionChecklist item=checklistItem}
-					<li class="list-group-item">
-						<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-						<span class="item-content">{$checklistItem.content|nl2br}</span>
-					</li>
-				{/foreach}
-			</ul>
-
-		</div>
-	{/if}
-	{* /Submission Checklist *}
-
 	{* Author Guidelines *}
-	{if $currentJournal->getLocalizedSetting('authorGuidelines')}
+	{if $currentJournal->getLocalizedData('authorGuidelines')}
 		<div class="author_guidelines">
 			<h2 class="page-header">
 				{translate key="about.authorGuidelines"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.authorGuidelines"}
 			</h2>
-			{$currentJournal->getLocalizedSetting('authorGuidelines')|nl2br}
+			{$currentJournal->getLocalizedData('authorGuidelines')}
 		</div>
 	{/if}
 	{* /Author Guidelines *}
 
+	{* Submission Checklist *}
+	{if $submissionChecklist}
+		<div class="submission_checklist">
+			<h2 class="page-header">
+				{translate key="about.submissionPreparationChecklist"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.submissionPreparationChecklist"}
+			</h2>
+			{$submissionChecklist}
+		</div>
+	{/if}
+	{* /Submission Checklist *}
+
 	{* Copyright Notice *}
-	{if $currentJournal->getLocalizedSetting('copyrightNotice')}
+	{if $currentJournal->getLocalizedData('copyrightNotice')}
 		<div class="copyright-notice">
 			<h2 class="page-header">
 				{translate key="about.copyrightNotice"}
-				</span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.copyrightNotice"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="distribution" anchor="license" sectionTitleKey="about.copyrightNotice"}
 			</h2>
-			{$currentJournal->getLocalizedSetting('copyrightNotice')|nl2br}
+			{$currentJournal->getLocalizedData('copyrightNotice')}
 		</div>
 	{/if}
 	{* /Copyright Notice *}

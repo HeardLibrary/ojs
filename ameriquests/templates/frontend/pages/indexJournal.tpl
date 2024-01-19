@@ -1,7 +1,8 @@
 {**
  * templates/frontend/pages/indexJournal.tpl
  *
- * UPDATED/CHANGED/MODIFIED: Marc Behiels - marc@elemental.ca - 250416
+ * UPDATED/CHANGED/MODIFIED: Tao You @vanderbilt - 2020.04
+ * Customized journal index page for AmeriQuest journal at Vanderbilt
  *
  * Copyright (c) 2014-2017 Simon Fraser University Library
  * Copyright (c) 2003-2017 John Willinsky
@@ -17,13 +18,11 @@
  * @uses $numAnnouncementsHomepage int Number of announcements to display on the
  *       homepage
  * @uses $issue Issue Current issue
- * @uses $issues array for all issues
  *}
 
 {include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
 
-<!-- this is the customized front page for AmeriQuests -->
-<div id="main-content" class="page_index_journal" role="content">
+<div id="main-content" class="page_index_journal">
 
 	{call_hook name="Templates::Index::journal"}
 
@@ -39,9 +38,7 @@
 		</div>
 	{/if}
 
-
 	{* Announcements *}
-	{*
 	{if $numAnnouncementsHomepage && $announcements|count}
 		<section class="cmp_announcements media">
 			<header class="page-header">
@@ -52,41 +49,22 @@
 			<div class="media-list">
 				{foreach name=announcements from=$announcements item=announcement}
 					{if $smarty.foreach.announcements.iteration > $numAnnouncementsHomepage}
-						{php}break;{/php}
+						{break}
 					{/if}
 					{include file="frontend/objects/announcement_summary.tpl" heading="h3"}
 				{/foreach}
 			</div>
 		</section>
-	{/if} 
-	*}
+	{/if}
 
-
- 	{* Latest issue *}
-	{*  {if $issue}
-		<section class="current_issue">
-			<header class="page-header">
-				<h2>
-					{translate key="journal.currentIssue"}
-				</h2>
-			</header>
-			<p class="current_issue_title lead">
-				{$issue->getIssueIdentification()|strip_unsafe_html}
-			</p>
-			{include file="frontend/objects/issue_toc.tpl"}
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">
-				{translate key="journal.viewAllIssues"}
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
-		</section>
-	{/if} 
-	*}
+	{* Latest issue *}
+	{* to display current issue contents, see out-of-box tpl *}
 
 	{* Additional Homepage Content *}
 	{if $additionalHomeContent}
 		<section class="additional_content">
 			{$additionalHomeContent}
-		</section> 
+		</section>
 	{/if}
 </div><!-- .page -->
 

@@ -4,7 +4,7 @@
 <!--
   * plugins/generic/bootstrap3/version.xml
   *
-  * Copyright (c) 2014-2017 Simon Fraser University Library
+  * Copyright (c) 2014-2017 Simon Fraser University
   * Copyright (c) 2003-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
@@ -14,8 +14,8 @@
 <version>
 	<application>bootstrap3</application>
 	<type>plugins.themes</type>
-	<release>1.0.2.0</release>
-	<date>2017-02-06</date>
-	<lazy-load>0</lazy-load>
+	<release>3.3.0.0</release>
+	<date>2023-04-11</date>
+	<lazy-load>1</lazy-load>
 	<class>BootstrapThreeThemePlugin</class>
 </version>

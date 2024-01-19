@@ -1,9 +1,9 @@
 {**
  * templates/frontend/pages/userLogin.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2000-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * User login form.
  *
@@ -37,7 +37,7 @@
 			<label for="login-username">
 				{translate key="user.username"}
 			</label>
-			<input type="text" name="username" class="form-control" id="login-username" placeholder="{translate key='user.username'}" value="{$username|escape}" maxlenght="32" required>
+			<input type="text" name="username" class="form-control" id="login-username" placeholder="{translate key='user.username'}" value="{$username|default:""|escape}" maxlength="32" required>
 		</div>
 
 		<div class="form-group">
@@ -59,13 +59,25 @@
 			</label>
 		</div>
 
+		{* recaptcha spam blocker *}
+		{if $recaptchaPublicKey}
+			<fieldset class="recaptcha_wrapper">
+				<div class="fields">
+					<div class="recaptcha">
+						<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		{/if}
+
 		<div class="buttons">
 			<button type="submit" class="btn btn-primary">
 				{translate key="user.login"}
 			</button>
 
 			{if !$disableUserReg}
-				{url|assign:registerUrl page="user" op="register" source=$source}
+				{capture assign="registerUrl"}{url page="user" op="register" source=$source}{/capture}
 				<a class="btn btn-default register-button" href="{$registerUrl}" role="button">
 					{translate key="user.login.registerNewAccount"}
 				</a>

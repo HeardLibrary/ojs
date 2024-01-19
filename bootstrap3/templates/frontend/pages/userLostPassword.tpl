@@ -1,9 +1,9 @@
 {**
  * templates/frontend/pages/userLostPassword.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2000-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Password reset form.
  *
@@ -31,7 +31,7 @@
 			<label for="login-email">
 				{translate key="user.login.registeredEmail"}
 			</label>
-			<input type="email" name="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" maxlenght="32" required>
+			<input type="email" name="email" class="form-control" id="login-email" placeholder="{translate key='user.login.registeredEmail'}" value="{$email|escape}" maxlength="32" required>
 		</div>
 
 		<div class="buttons">
@@ -40,7 +40,7 @@
 			</button>
 
 			{if !$disableUserReg}
-				{url|assign:registerUrl page="user" op="register" source=$source}
+				{capture assign="registerUrl"}{url page="user" op="register" source=$source}{/capture}
 				<a class="btn btn-default register-button" href="{$registerUrl}" role="button">
 					{translate key="user.login.registerNewAccount"}
 				</a>

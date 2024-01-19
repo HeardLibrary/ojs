@@ -1,9 +1,9 @@
 {**
  * templates/frontend/objects/issue_summary.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of an Issue which displays a summary for use in lists
  *
@@ -14,12 +14,13 @@
 	{* Retrieve separate entries for $issueTitle and $issueSeries *}
 	{assign var=issueTitle value=$issue->getLocalizedTitle()}
 	{assign var=issueSeries value=$issue->getIssueSeries()}
+	{assign var=issueDescription value=$issue->getLocalizedDescription()}
 
 	{* Show cover image and use cover description *}
 	{if $issue->getLocalizedCoverImage()}
 		<div class="media-left">
-			<a class="cover" href="{url op="view" path=$issue->getBestIssueId($currentJournal)}">
-				<img class="media-object" src="{$issue->getLocalizedCoverImageUrl()}">
+			<a class="cover" href="{url|escape op="view" path=$issue->getBestIssueId($currentJournal)}">
+				<img class="media-object" src="{$issue->getLocalizedCoverImageUrl()|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}">
 			</a>
 		</div>
 	{/if}
@@ -27,7 +28,7 @@
 
 	<div class="media-body">
 		<h2 class="media-heading">
-			<a class="title" href="{url op="view" path=$issue->getBestIssueId($currentJournal)}">
+			<a class="title" href="{url|escape op="view" path=$issue->getBestIssueId($currentJournal)}">
 				{if $issueTitle}
 					{$issueTitle|escape}
 				{else}

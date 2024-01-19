@@ -1,9 +1,9 @@
 {**
  * templates/frontend/pages/search.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the page to search and view search results.
  *
@@ -36,7 +36,7 @@
 			</label>
 
 			<div class="input-group">
-				<input type="text" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate key="common.search"}">
+				<input type="search" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate key="common.search"}">
 				<span class="input-group-btn">
 					<input type="submit" value="{translate key="common.search"}" class="btn btn-default">
 				</span>
@@ -75,7 +75,7 @@
 						<label for="authors">
 							{translate key="search.author"}
 						</label>
-						<input class="form-control" type="text" for="authors" name="authors" value="{$authors}">
+						<input class="form-control" type="text" for="authors" name="authors" value="{$authors|escape}">
 					</div>
 				</div>
 			</div>
@@ -87,7 +87,7 @@
 				{translate key="search.searchResults"}
 			</h2>
 			{iterate from=results item=result}
-				{include file="frontend/objects/article_summary.tpl" article=$result.publishedArticle showDatePublished=true}
+				{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
 			{/iterate}
 		</div>
 

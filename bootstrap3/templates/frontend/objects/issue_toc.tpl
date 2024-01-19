@@ -1,9 +1,9 @@
 {**
  * templates/frontend/objects/issue_toc.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of an Issue which displays a full table of contents.
  *
@@ -30,8 +30,8 @@
 		{if $issueCover}
 			{assign var="issueDetailsCol" value="8"}
 			<div class="thumbnail col-md-4">
-				<a class="cover" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
-					<img class="img-responsive" src="{$issueCover|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
+				<a class="cover" href="{url|escape op="view" page="issue" path=$issue->getBestIssueId()}">
+					<img class="img-responsive" src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}">
 				</a>
 			</div>
 		{/if}
@@ -74,14 +74,14 @@
 					<strong>
 						{translate key="submissions.published"}:
 					</strong>
-					{$issue->getDatePublished()|date_format:$dateFormatShort}
+					{$issue->getDatePublished()|escape|date_format:$dateFormatShort}
 				</p>
 			{/if}
 		</div>
 	</div>
 
 	{* Full-issue galleys *}
-	{if $issueGalleys && ($hasAccess || $showGalleyLinks)}
+	{if $issueGalleys}
 		<div class="galleys">
 			<div class="page-header">
 				<h2>
@@ -90,7 +90,7 @@
 			</div>
 			<div class="btn-group" role="group">
 				{foreach from=$issueGalleys item=galley}
-					{include file="frontend/objects/galley_link.tpl" parent=$issue}
+					{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getData('purchaseIssueFee') purchaseCurrency=$currentJournal->getData('currency')}
 				{/foreach}
 			</div>
 		</div>
@@ -98,7 +98,7 @@
 
 	{* Articles *}
 	<div class="sections">
-		{foreach name=sections from=$publishedArticles item=section}
+		{foreach name=sections from=$publishedSubmissions item=section}
 			<section class="section">
 				{if $section.articles}
 					{if $section.title}

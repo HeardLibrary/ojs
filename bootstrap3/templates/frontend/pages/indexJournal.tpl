@@ -3,9 +3,9 @@
  *
  * UPDATED/CHANGED/MODIFIED: Marc Behiels - marc@elemental.ca - 250416
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the index page for a journal
  *
@@ -20,7 +20,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
 
-<div id="main-content" class="page_index_journal" role="content">
+<div id="main-content" class="page_index_journal">
 
 	{call_hook name="Templates::Index::journal"}
 
@@ -47,7 +47,7 @@
 			<div class="media-list">
 				{foreach name=announcements from=$announcements item=announcement}
 					{if $smarty.foreach.announcements.iteration > $numAnnouncementsHomepage}
-						{php}break;{/php}
+						{break}
 					{/if}
 					{include file="frontend/objects/announcement_summary.tpl" heading="h3"}
 				{/foreach}
@@ -68,7 +68,7 @@
 				{$issue->getIssueIdentification()|strip_unsafe_html}
 			</p>
 			{include file="frontend/objects/issue_toc.tpl"}
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">
+			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">
 				{translate key="journal.viewAllIssues"}
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>

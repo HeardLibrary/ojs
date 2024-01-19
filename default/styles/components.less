@@ -1,9 +1,9 @@
 /**
  * @file styles/components.less
  *
- * Copyright (c) 2014-2017 Simon Fraser University
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Reusable components
  */
@@ -23,9 +23,10 @@
 	border-radius: @radius;
 	box-shadow: inset 0 -1em 1em rgba(0, 0, 0, 0.1);
 	font-size: @font-sml;
-	line-height: @triple - 2; // account for border
+	line-height: calc(~"@{triple} - 2px"); // account for border
 	font-weight: @bold;
 	color: @primary;
+	text-decoration: none;
 
 	&:hover,
 	&:focus {
@@ -41,7 +42,7 @@
 	border: 1px solid @primary;
 	border-radius: @radius;
 	font-size: @font-sml;
-	line-height: @triple - 2; // account for border
+	line-height: calc(~"@{triple} - 2px"); // account for border
 	color: @primary;
 	text-decoration: none;
 
@@ -59,7 +60,7 @@
 	border-right: none;
 
 	&:after {
-		&:extend(.fa);
+		.fa();
 		content: @icon;
 		position: absolute;
 		top: -1px; // border;
@@ -110,7 +111,7 @@
 	text-decoration: none;
 
 	&:after {
-		&:extend(.fa);
+		.fa();
 		content: @icon;
 		position: absolute;
 		top: 2px;
@@ -124,6 +125,16 @@
 	&:hover,
 	&:focus {
 		color: @primary-lift;
+	}
+}
+
+// List of articles
+.cmp_article_list {
+	&:extend(.pkp_unstyled_list);
+
+	> li {
+		.pkp_helpers_clear();
+		margin-bottom: @triple;
 	}
 }
 
@@ -178,28 +189,23 @@
 		display: block;
 		font-size: @font-sml;
 		font-weight: @normal;
-		font-style: italic;
-
-		.required {
-			color: @no;
-		}
 	}
 
 	input[type="text"],
 	input[type="email"],
 	input[type="password"],
 	input[type="url"],
-	input[type="phone"],
+	input[type="tel"],
 	select,
 	textarea {
 		padding: 0 0.5em;
 		width: 100%;
-		height: @triple - 2; // account for border
+		height: calc(~"@{triple} - 2px"); // account for border
 		background: #fff;
 		border: @form-border;
 		border-radius: @radius;
 		font-size: @font-sml;
-		line-height: @triple - 2; // account for border
+		line-height: calc(~"@{triple} - 2px"); // account for border
 	}
 
 	textarea {
@@ -236,109 +242,53 @@
 		}
 	}
 
+	.description {
+		margin-top: 0;
+		font-size: @font-sml;
+		line-height: 1.5em;
+		color: @text-light;
+
+	}
+
 	@media(min-width: @screen-phone) {
 
 		input[type="text"],
 		input[type="email"],
 		input[type="password"],
 		input[type="url"],
-		input[type="phone"],
+		input[type="tel"],
 		select {
 			max-width: 20em;
 		}
 	}
-
-	// Tag-it component
-	// @todo This just duplicates some styles from pkp-lib. We can probably
-	//  find a better way to share styles after beta, or move this to somewhere
-	//  more appropriate in the theme.
-	.tagit {
-		&:extend(.pkp_unstyled_list);
-		&:extend(.cmp_form input[type="text"]);
-		.pkp_helpers_clear();
-
-		// overwrite text field styles
-		max-width: 100%;
-		height: auto;
-
-		> li {
-			display: inline-block;
-
-			&.tagit-choice {
-				margin-right: 0.5em;
-				padding-left: 0.5em;
-				background: @bg-shade;
-				border-radius: @radius;
-				line-height: @double;
-			}
-		}
-
-		input[type="text"] {
-			display: inline-block;
-			border: none;
-			width: inherit;
-			line-height: 30px;
-			height: 30px;
-			vertical-align: top;
-			padding: 0 0.5em;
-		}
-	}
-
-	.tagit-close {
-		padding: 0 0.5em;
-		color: @no;
-	}
 }
 
-// Auto-complete selection fields for tagit component (not nested in .pkp_form)
-.ui-autocomplete {
-	&:extend(.pkp_unstyled_list);
-	width: 20em;
-	padding: 2px;
-	border-radius: @radius;
-	background: @bg-base;
-
-	&:before {
-		content: '';
-		position: absolute;
-		top: -@half;
-		left: 1em;
-		width: 0;
-		height: 0;
-		color: @bg-base;
-		border-bottom: @half solid;
-		border-right: @half solid transparent;
-		border-left: @half solid transparent;
-		vertical-align: middle;
-	}
-
-	> li {
-		padding: @half;
-		font-size: @font-sml;
-		line-height: @line-sml;
-		color: #fff;
-		cursor: pointer;
-
-		&:hover,
-		&:focus {
-			background: @bg;
-			color: @text;
-		}
-	}
-}
-
-// Pagination component
-// eg: 1-2 of 10 items
+// Pagination
 .cmp_pagination {
-	margin-top: @double;
-	font-size: @font-sml;
-	line-height: @double;
-	color: @text-light;
+	.pkp_helpers_clear;
 	text-align: right;
 
-	a {
-		padding-left: 0.5em;
-		padding-right: 0.5em;
+	.prev {
+		float: left;
+		margin-right: 0.5em;
+		text-decoration: none;
+
+		&:before {
+			.fa;
+			content: @fa-var-long-arrow-left;
+			margin-right: 0.5em;
+		}
+	}
+
+	.next {
+		margin-left: 0.5em;
+		text-decoration: none;
+
+		&:after {
+			.fa;
+			content: @fa-var-long-arrow-right;
+			margin-left: 0.5em;
+		}
 	}
 }
 
@@ -354,7 +304,7 @@
 	text-decoration: none;
 
 	&:before {
-		&:extend(.fa);
+		.fa();
 		content: @fa-var-pencil;
 	}
 }
@@ -405,7 +355,7 @@
 	ol {
 		&:extend(.pkp_unstyled_list);
 		margin-bottom: @triple;
-		padding: 5px 0;
+		padding: @half 0;
 		line-height: @double;
 		font-size: @font-sml;
 	}
@@ -491,5 +441,25 @@
 		clip: auto;
 		top: 0;
 		left: 50%;
+		color: @primary;
+	}
+}
+
+// Tables
+.cmp_table {
+	width: 100%;
+	border: @bg-border;
+	border-bottom: none;
+	border-collapse: collapse;
+
+	th,
+	td {
+		padding: 0.5em;
+		text-align: left;
+		border-bottom: @bg-border;
+	}
+
+	th {
+		font-weight: @bold;
 	}
 }

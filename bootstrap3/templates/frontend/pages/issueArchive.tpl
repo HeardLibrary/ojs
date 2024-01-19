@@ -1,17 +1,22 @@
 {**
  * templates/frontend/pages/issueArchive.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display a list of recent issues.
  *
  * @uses $issues Array Collection of issues to display
+ * @uses $prevPage int The previous page number
+ * @uses $nextPage int The next page number
+ * @uses $showingStart int The number of the first item on this page
+ * @uses $showingEnd int The number of the last item on this page
+ * @uses $total int Count of all published monographs
  *}
 {capture assign="pageTitle"}
-	{if $issues->getPageCount() > 0 && $issues->getPage() > 1}
-		{translate key="archive.archivesPageNumber" pageNumber=$issues->getPage()}
+	{if $prevPage}
+		{translate key="archive.archivesPageNumber" pageNumber=$prevPage+1}
 	{else}
 		{translate key="archive.archives"}
 	{/if}
@@ -22,7 +27,7 @@
 	{include file="frontend/components/breadcrumbs.tpl" currentTitle=$pageTitle}
 
 	{* No issues have been published *}
-	{if !$issues}
+	{if empty($issues)}
 		<div class="alert alert-info" role="alert">
 			{translate key="current.noCurrentIssueDesc"}
 		</div>
@@ -30,18 +35,28 @@
 
 		{* List issues *}
 		<div class="issues media-list">
-			{iterate from=issues item=issue}
+			{foreach from=$issues item="issue"}
 				{include file="frontend/objects/issue_summary.tpl"}
-			{/iterate}
+			{/foreach}
 		</div>
 
-		{if $issues->getPageCount() > 0}
-			<nav class="text-center">
-				<ul class="pagination">
-					{page_links anchor="issues" name="issues" iterator=$issues}
-				</ul>
-			</nav>
+		{* Pagination *}
+		{if $prevPage > 1}
+			{capture assign=prevUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive" path=$prevPage}{/capture}
+		{elseif $prevPage === 1}
+			{capture assign=prevUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}{/capture}
 		{/if}
+		{if $nextPage}
+			{capture assign=nextUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive" path=$nextPage}{/capture}
+		{/if}
+		{include
+			file="frontend/components/pagination.tpl"
+			prevUrl=$prevUrl
+			nextUrl=$nextUrl
+			showingStart=$showingStart
+			showingEnd=$showingEnd
+			total=$total
+		}
 	{/if}
 </div>
 

@@ -2,7 +2,7 @@
 <!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
 
 <!--
-  * plugins/themes/default/version.xml
+  * plugins/themes/vurj/version.xml
   *
   * Copyright (c) 2019 Vanderbilt University Library
   * Copyright (c) 2019 Tao You
@@ -13,8 +13,8 @@
 <version>
 	<application>vurj</application>
 	<type>plugins.themes</type>
-	<release>1.0.0.0</release>
-	<date>2019-02-07</date>
+	<release>2.0.0.0</release>
+	<date>2020-04-24</date>
 	<lazy-load>0</lazy-load>
 	<class>vurjThemePlugin</class>
 </version>

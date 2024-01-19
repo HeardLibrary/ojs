@@ -54,6 +54,3 @@ class AmeriQuestsThemePlugin extends ThemePlugin {
 	}
 
 }
-
-
-?>

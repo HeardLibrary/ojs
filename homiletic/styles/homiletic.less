@@ -1,0 +1,56 @@
+/**
+ * @file plugins/themes/homiletic/styles/homiletic.less
+ *
+ * Copyright (c) 2020 Vanderbilt University Library
+ * Copyright (c) 2020 Tao You
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * customized styles for Homiletic Journal at Vanderbilt
+ * last updated 1/12/2024
+ */
+
+/* customized styles for block_custom   */
+@bg-base:  		#002C40;
+@text-bg-base: 	#fff;
+@accent: 		#981A07;
+
+.block_custom a {
+	&:extend(.cmp_manuscript_button all); 
+	padding: 1em;
+}	
+
+.block_custom .content p {padding: .8em 0};
+
+/* customized style for issue-toc template */
+.obj_issue_toc h3 {
+	display: inline; 
+	border-bottom: 0px none transparent; 
+	border-top: none;
+}
+
+.pkp_navigation_user_wrapper a {
+    color: #B4B4B4; 
+}    
+
+.pkp_navigation_search_wrapper { 
+    a {
+        font-family: @font-heading;
+        font-size: @font-sml;
+        font-weight: @bold;
+	text-transform: uppercase;
+        color: rgba(0,0,0,0.54); 
+
+        &:hover,
+        &:focus{
+	    color: rgba(0,0,0,0.71);
+         }
+    }
+}
+@media(max-width: @screen-desktop){
+    .pkp_navigation_search_wrapper {
+        a {
+          color: #fff;
+	  &:hover { color: #fff;}
+    }
+ } 
+}

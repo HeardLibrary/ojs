@@ -1,9 +1,9 @@
 {**
  * templates/frontend/objects/galley_link.tpl
  *
- * Copyright (c) 2014-2017 Simon Fraser University Library
- * Copyright (c) 2003-2017 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of a galley object as a link to view or download the galley, to be used
  *  in a list of galleys.
@@ -34,14 +34,21 @@
 {if $parent instanceOf Issue}
 	{assign var="page" value="issue"}
 	{assign var="parentId" value=$parent->getBestIssueId()}
+	{assign var="path" value=$parentId|to_array:$galley->getBestGalleyId()}
 {else}
 	{assign var="page" value="article"}
-	{assign var="parentId" value=$parent->getBestArticleId()}
+	{assign var="parentId" value=$parent->getBestId()}
+	{* Get a versioned link if we have an older publication *}
+	{if $publication && $publication->getId() !== $parent->getCurrentPublication()->getId()}
+		{assign var="path" value=$parentId|to_array:"version":$publication->getId():$galley->getBestGalleyId()}
+	{else}
+		{assign var="path" value=$parentId|to_array:$galley->getBestGalleyId()}
+	{/if}
 {/if}
 
 {* Get user access flag *}
 {if !$hasAccess}
-	{if $restrictOnlyPdf && type=="pdf"}
+	{if $restrictOnlyPdf && $type=="pdf"}
 		{assign var=restricted value="1"}
 	{elseif !$restrictOnlyPdf}
 		{assign var=restricted value="1"}
@@ -49,10 +56,11 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a class="galley-link btn btn-default role="button" {$type}{if $restricted} restricted{/if}" href="{url page=$page op="view" path=$parentId|to_array:$galley->getBestGalleyId($currentJournal)}">
+<a class="galley-link btn {if $isSupplementary}btn-default{else}btn-primary{/if} {$type}" role="button" href="{url page=$page op="view" path=$path}">
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
+		<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 		<span class="sr-only">
 			{if $purchaseArticleEnabled}
 				{translate key="reader.subscriptionOrFeeAccess"}
@@ -63,4 +71,10 @@
 	{/if}
 
 	{$galley->getGalleyLabel()|escape}
+
+	{if $restricted && $purchaseFee && $purchaseCurrency}
+		<span class="purchase-cost">
+			{translate key="reader.purchasePrice" price=$purchaseFee currency=$purchaseCurrency}
+		</span>
+	{/if}
 </a>
